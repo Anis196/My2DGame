@@ -1,0 +1,32 @@
+// DOCUMENTATION FILE
+// STEP BY STEP DEBUGGING PROCESS AND IMPLEMENTATION
+
+1 CREATED Main.java 
+	Created JFrame** for the game window with title **"2D Adventure"**, set to non-resizable and exit on close.  
+	Added `GamePanel`** to the frame and adjusted size using `pack()`.  
+	Centered and displayed** the window using `setLocationRelativeTo(null)` and `setVisible(true)`.  
+	Started the game loop** by calling `gamepanel.startGameThread()`.
+	 *********CREATING GAME LOOP*******************
+ 	Problem 1: after the main.java runs the white box runs away in vertical-lower direction in an instant as the update() function
+ 	is called again and again in the function. 	Add FPS  = 60 and do 10 raised to 9/ 60 i.e 0.0166 seconds this character is updated.
+ 	
+ 	Problem 2: then we create have a new interval before the update and repaint, but now we need to see how much time remaining after 
+ 	the repaint() method is called, after the process of updation and repaint() is done we need to let the process sleep i.e thread must
+ 	sleep for that duration of remaining time.
+ 	***********************************************
+
+2 CREATED KeyHandler.java -
+	Game Screen Setup: Defines a 16x12 tile-based grid with a black background and double buffering for smooth rendering.
+	Player Initialization: Starts at (100,100) with a movement speed of 4.
+	Key Handling: Uses keyHandler to detect and process directional inputs.
+	Game Loop: Runs in a separate thread (startGameThread()) to continuously update and repaint the screen.
+	Update Method: Adjusts player position based on key inputs.
+	Rendering: paintComponent(Graphics g) draws the player as a white square and disposes of graphics resources for efficiency.
+	
+3 CREATED keyHandler.java - 
+	Implements KeyListener: Detects and processes keyboard inputs.
+	Boolean Flags: Tracks movement keys (WASD) for up, down, left, and right.
+	keyPressed(KeyEvent e): Sets movement flags to true when a key is pressed.
+	keyReleased(KeyEvent e): Resets movement flags to false when a key is released.
+	keyTyped(KeyEvent e): Unused but required by KeyListener.
+	
