@@ -10,7 +10,6 @@ public class Main {
 		window.setResizable(false);
 		window.setTitle("2D Adventure");
 		
-		
 		GamePanel gamepanel = new GamePanel();
 		window.add(gamepanel);
 		
@@ -20,7 +19,6 @@ public class Main {
 		window.setVisible(true);
 		
 		gamepanel.startGameThread();
-
+		
 	}
-
 }
